@@ -11,7 +11,7 @@ locals {
   manifest = {
     joc = {
       node_type            = "joc"
-      iam_instance_profile = ""
+      iam_instance_profile = aws_iam_instance_profile.s3_plugin_test_ec2.id
     }
     master01 = {
       node_type            = "master"

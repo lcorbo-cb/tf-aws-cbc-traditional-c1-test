@@ -18,7 +18,9 @@ resource "aws_iam_policy" "cap1_test" {
               "Effect": "Allow",
               "Resource": [
                   "arn:aws:s3:::cb-c1-test-bucket-east",
-                  "arn:aws:s3:::cb-c1-test-bucket-east/*"
+                  "arn:aws:s3:::cb-c1-test-bucket-east/*",
+                  "arn:aws:s3:::cb-c1-test-bucket-west",
+                  "arn:aws:s3:::cb-c1-test-bucket-west/*"
               ]
           }
       ]
@@ -29,7 +31,7 @@ EOF
 
 resource "aws_iam_instance_profile" "s3_plugin_test_ec2" {
   name = "s3_plugin_test_ec2_test_2"
-  role = "${aws_iam_role.s3_plugin_test_ec2.name}"
+  role = aws_iam_role.s3_plugin_test_ec2.name
 }
 
 
